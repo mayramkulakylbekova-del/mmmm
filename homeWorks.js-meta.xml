@@ -5,4 +5,5 @@
 </LightningComponentBundle>
 <<targets>
     <target>lightning__AppPage</target>
+    <h1>Hello</h1>
 </targets>
