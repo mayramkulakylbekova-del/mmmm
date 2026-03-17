@@ -1,9 +1,8 @@
-name: Deploy to Salesforce
-
 on:
   push:
     branches:
       - main
+      - MairamDev1
 
 jobs:
   deploy:
