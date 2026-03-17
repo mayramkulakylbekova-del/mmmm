@@ -1,3 +1,5 @@
+name: Deploy to Salesforce
+
 on:
   push:
     branches:
@@ -18,13 +20,13 @@ jobs:
       - name: Write JWT key
         run: echo "${{ secrets.SF_JWT_KEY }}" > server.key
 
-    - name: Auth
-  run: |
-    sf org login jwt \
-      --client-id ${{ secrets.SF_CONSUMER_KEY }} \
-      --jwt-key-file server.key \
-      --username ${{ secrets.SF_USERNAME }} \
-      --instance-url https://login.salesforce.com
+      - name: Auth
+        run: |
+          sf org login jwt \
+            --client-id ${{ secrets.SF_CONSUMER_KEY }} \
+            --jwt-key-file server.key \
+            --username ${{ secrets.SF_USERNAME }} \
+            --instance-url https://login.salesforce.com
 
       - name: Deploy
-        run: sf project deploy start
+        run: sf project deploy start --target-org ${{ secrets.SF_USERNAME }}
