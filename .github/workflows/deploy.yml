@@ -28,4 +28,3 @@ jobs:
 
       - name: Deploy
         run: sf project deploy start
-        #test
